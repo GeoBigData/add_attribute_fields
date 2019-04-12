@@ -1,0 +1,12 @@
+# environment.yml
+name: add_attribute_fields
+channels: !!python/tuple
+- !!python/unicode
+  'conda-forge'
+- !!python/unicode
+  'digitalglobe'
+- !!python/unicode
+  'defaults'
+dependencies:
+- conda-forge::python=3.6.6
+- conda-forge::fiona==1.8.4

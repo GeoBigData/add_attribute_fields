@@ -1,0 +1,60 @@
+{
+    "inputPortDescriptors": [
+        {
+            "required": true,
+            "type": "directory",
+            "description": "Directory holding the input vector dataset. Must contain one shapefile (.shp) or geojson (.json or .geojson)",
+            "name": "data"
+        },
+        {
+            "required": false,
+            "type": "string",
+            "description": "Output name for new dataset. Default: if not specified, the output name will match the input name.",
+            "name": "out_name"
+        }, 
+        {
+            "required": true,
+            "type": "string",
+            "multiplex": true,
+            "description": "Multiplex input. Name of the new field",
+            "name": "attr_name"
+        },
+        {
+            "required": true,
+            "type": "string",
+            "multiplex": true,
+            "description": "Multiplex input. Data type of the new field (see: https://fiona.readthedocs.io/en/latest/manual.html#field-types)",
+            "name": "attr_dtype"
+        },
+        {
+            "required": true,
+            "type": "string",
+            "multiplex": true,
+            "description": "Multiplex input. Value to be used for populating the new field",
+            "name": "attr_value"
+        }
+    ],
+    "outputPortDescriptors": [
+        {
+            "required": true,
+            "type": "directory",
+            "description": "Directory holding output data.",
+            "name": "data"
+        }
+    ],
+    "containerDescriptors": [{
+        "type": "DOCKER",
+        "command": "$run_task",
+        "properties": {
+            "image": "mgleason/add_attribute_fields:latest"
+        }
+    }],
+    "name": "add_attribute_fields",
+    "taskOwnerEmail": "michael.gleason@digitalglobe.com",
+    "version": "0.0.1",
+    "description": "WARNING: THIS TASK IS EXPERIMENTAL AND HAS NOT BEEN ROBUSTLY TESTED. Given a source shapefile or geojson and information describing new attributes, this task will output a new vector dataset with the specified attributes added. For more information about this task, please contact Mike Gleason (michael.gleason@digitalglobe.com).",
+    "properties": {
+        "isPublic": true,
+        "timeout": 36000
+    }
+}
