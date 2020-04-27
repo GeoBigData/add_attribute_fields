@@ -44,14 +44,14 @@
     ],
     "containerDescriptors": [{
         "type": "DOCKER",
-        "command": "$run_task",
+        "command": "/opt/conda/envs/add_attribute_fields/bin/python /scripts/task_runner.py",
         "properties": {
             "image": "mgleason/add_attribute_fields:latest"
         }
     }],
     "name": "add_attribute_fields",
     "taskOwnerEmail": "michael.gleason@digitalglobe.com",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "description": "WARNING: THIS TASK IS EXPERIMENTAL AND HAS NOT BEEN ROBUSTLY TESTED. Given a source shapefile or geojson and information describing new attributes, this task will output a new vector dataset with the specified attributes added. For more information about this task, please contact Mike Gleason (michael.gleason@digitalglobe.com).",
     "properties": {
         "isPublic": true,
